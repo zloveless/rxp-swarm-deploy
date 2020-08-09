@@ -1,0 +1,15 @@
+---
+version: "3"
+services:
+  patch-mirror:
+    container_name: renx-patch
+    image: ccrenx/renegadex-patch-mirror:beta
+    restart: always
+    deploy:
+      replicas: 1
+    volumes:
+      - '/opt/renx/patches:/patches'
+    ports:
+      - '2222:22'
+      - '80:8080'
+#EOF
